@@ -763,8 +763,8 @@
     const words = {1:'one (1) year', 2:'two (2) years', 3:'three (3) years', 5:'five (5) years'};
     const purposes = {
       acq: 'evaluating, negotiating, and potentially consummating an acquisition of all or part of the Company\u2019s business by ITW or its affiliates',
-      eval: 'ITW preparing an evaluation of the Company\u2019s business and its estimated market value',
-      list: 'evaluating the Company\u2019s business and, if the parties agree, presenting it to prospective buyers'
+      eval: 'ITW preparing an evaluation of the Company\u2019s business and its estimated market value, and any potential acquisition of all or part of the Company\u2019s business by ITW or its affiliates',
+      list: 'evaluating the Company\u2019s business, presenting it to prospective buyers if the Parties agree, and any potential acquisition of all or part of the Company\u2019s business by ITW or its affiliates'
     };
 
     function values(){
@@ -821,15 +821,17 @@
 
       h += sec('Required Disclosure', 'If ' + R + ' is required by law, regulation, or court order to disclose Confidential Information, it will, to the extent legally permitted, give ' + D + ' prompt written notice so that ' + D + ' may seek a protective order, and will disclose only the portion legally required.');
 
-      h += sec('No Contact', 'Without the Company\u2019s prior written consent, ITW will not contact the Company\u2019s employees (other than those designated by the Company), customers, suppliers, landlords, or lenders regarding the Company or the Purpose.');
+      h += sec('No Contact', 'Without the Company\u2019s prior written consent, ITW will not contact the Company\u2019s employees (other than those designated by the Company), customers, suppliers, landlords, or lenders regarding the Company or the Purpose, except as permitted in a definitive agreement. Consent may be given by email.');
 
       if (v.nonSolicit) {
-        h += sec('Non-Solicitation', 'For twelve (12) months after the Effective Date, ITW will not directly solicit for employment any employee of the Company with whom ITW had contact or of whom it became aware through the Purpose. General advertisements not targeted at the Company\u2019s employees, and hiring anyone who responds to them, are not a violation of this section.');
+        h += sec('Non-Solicitation', 'For twelve (12) months after the Effective Date, ITW will not directly solicit for employment any employee of the Company with whom ITW had contact or of whom it became aware through the Purpose. General advertisements not targeted at the Company\u2019s employees, and hiring anyone who responds to them, are not a violation of this section. This section does not restrict ITW or its affiliates from offering employment to, or retaining, any of the Company\u2019s employees in connection with an acquisition of the Company\u2019s business, or at the Company\u2019s request.');
       }
 
       h += sec('Return or Destruction', 'Upon written request, ' + R + ' will promptly return or destroy all Confidential Information in its possession, except that it may retain copies required by law or stored in routine electronic backups, which remain subject to this Agreement.');
 
       h += sec('No Obligation; No Warranty', 'This Agreement does not obligate either Party to enter into any transaction. Unless and until a definitive written agreement is signed, neither Party has any legal obligation regarding a transaction. Confidential Information is provided \u201cas is,\u201d and ' + (mutual ? 'neither Party makes' : 'the Company makes no') + (mutual ? ' any' : '') + ' representation or warranty about its accuracy or completeness except as may be set out in a definitive agreement.');
+
+      h += sec('Effect of a Transaction', 'Nothing in this Agreement restricts ITW or its affiliates from acquiring the Company, its equity, or any of its assets, or from employing its employees, under a definitive agreement. If such a transaction closes, the definitive agreement governs, and ITW\u2019s obligations under this Agreement end with respect to Confidential Information relating to the business, assets, and employees ITW or its affiliates acquire.');
 
       h += sec('Term', 'The obligations in this Agreement continue for ' + term + ' from the Effective Date, except that obligations regarding trade secrets continue for as long as the information remains a trade secret under applicable law.');
 
