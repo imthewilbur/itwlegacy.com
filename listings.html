@@ -216,6 +216,12 @@
   .modal-list-optional li{align-items:center; font-size:13.5px; color:var(--ink-soft);}
   .modal-dot{width:5px; height:5px; border-radius:50%; background:var(--chrome-3); flex-shrink:0;}
   .modal-cta{margin-top:24px; width:100%; justify-content:center;}
+  .modal-nda{display:flex; gap:14px; align-items:flex-start; margin-top:18px; padding:16px 18px; border:1px solid var(--gold-dim); border-radius:4px; background:rgba(216,178,95,0.07);}
+  .modal-nda-icon{color:var(--gold); flex-shrink:0; margin-top:1px;}
+  .modal-nda strong{display:block; font-size:14px; color:var(--ink);}
+  .modal-nda span{display:block; font-size:13px; line-height:1.5; color:var(--ink-soft); margin-top:3px;}
+  .modal-nda-link{display:inline-block; margin-top:8px; font-size:13px; font-weight:600; color:var(--gold-light); text-decoration:none; border-bottom:1px solid var(--gold-dim); padding-bottom:1px;}
+  .modal-nda-link:hover{color:var(--gold); border-color:var(--gold);}
   .modal-fine{margin-top:14px; font-size:12px; color:var(--ink-mute); line-height:1.5;}
 
   /* ---------- SECTION SHELL ---------- */
@@ -568,6 +574,15 @@
       <h3 id="evalModalTitle">What we need for your free evaluation</h3>
       <p class="modal-intro">To give you an honest, accurate number, we start with a few documents. None of this is a commitment to sell — it just lets us do real math instead of guessing.</p>
 
+      <div class="modal-nda">
+        <svg class="modal-nda-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+          <strong>Want an NDA first? We'd expect nothing less.</strong>
+          <span>Generate a free confidentiality agreement in about two minutes. We'll countersign it before you send a single document.</span>
+          <a href="nda.html" class="modal-nda-link">Create your NDA &rarr;</a>
+        </div>
+      </div>
+
       <div class="modal-group">
         <div class="modal-group-title">Required</div>
         <ul class="modal-list">
@@ -631,6 +646,14 @@
     btn.addEventListener('click', (e) => { e.preventDefault(); openEvalModal(); });
   });
   evalModalClose && evalModalClose.addEventListener('click', closeEvalModal);
+  // On the NDA page itself, the pop-out link just closes the pop-out and jumps to the generator
+  document.querySelectorAll('.modal-nda-link').forEach(a => a.addEventListener('click', (e) => {
+    if (document.getElementById('ndaDoc')) {
+      e.preventDefault();
+      closeEvalModal();
+      document.getElementById('nda').scrollIntoView({behavior:'smooth'});
+    }
+  }));
   evalModal && evalModal.addEventListener('click', (e) => { if (e.target === evalModal) closeEvalModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && evalModal.classList.contains('open')) closeEvalModal(); });
 </script>
